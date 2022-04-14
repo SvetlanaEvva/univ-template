@@ -3,18 +3,18 @@ package com.company;
 import com.google.gson.annotations.SerializedName;
 
 public class Lesson {
-    @SerializedName("groupID")
+    @SerializedName("GroupID")
     String groupID;
-    @SerializedName("departamentName")
-    String departamentName;
-    @SerializedName("teacherFIO")
+    @SerializedName("Discipline")
+    String Discipline;
+    @SerializedName("TeacherFIO")
     String teacherFIO;
     @SerializedName("dayDate")
     String dayDate;
 
-    public Lesson(String groupID, String departamentName, String teacherFIO, String dayDate) {
+    public Lesson(String groupID, String Discipline, String teacherFIO, String dayDate) {
         this.groupID = groupID;
-        this.departamentName = departamentName;
+        this.Discipline = Discipline;
         this.teacherFIO = teacherFIO;
         this.dayDate = dayDate;
     }
@@ -23,13 +23,15 @@ public class Lesson {
         return groupID;
     }
 
-    @Override
-    public String toString() {
-        return "Lesson{" +
-                "groupID='" + groupID + '\'' +
-                ", departamentName='" + departamentName + '\'' +
-                ", teacherFIO='" + teacherFIO + '\'' +
-                ", dayDate='" + dayDate + '\'' +
-                '}';
+    public String getDiscipline() {
+        return Discipline;
+    }
+
+    public String getTeacherFIO() {
+        return teacherFIO;
+    }
+
+    public String getDayDate() {
+        return dayDate;
     }
 }

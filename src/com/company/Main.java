@@ -1,6 +1,5 @@
 package com.company;
 
-import com.formdev.flatlaf.FlatLaf;
 import com.google.gson.Gson;
 
 import java.io.FileReader;
@@ -16,9 +15,15 @@ public class Main {
             GroupContainer groupContainer = gson.fromJson(
                     new FileReader("src/groups.json", StandardCharsets.UTF_8), GroupContainer.class
             );
-            TimeTable timeTable = new TimeTable(groupContainer.getGroupList());
+            TimeTableList timeTableList = gson.fromJson(
+                    new FileReader("src/timetable1.json", StandardCharsets.UTF_8),
+                    TimeTableList.class
+            );
+            GroupSelectionForm groupSelectionForm = new GroupSelectionForm(groupContainer.getGroupList(), timeTableList.getTimeTableList());
+            System.out.println(timeTableList.getTimeTableList());
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 }
